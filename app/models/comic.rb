@@ -4,5 +4,5 @@ class Comic < ApplicationRecord
   validates :title, {presence: true}
   validates :url, {presence: true}
   validates :thum_url, {presence: true}
-  validates :site_url, {presence: true}
+  validates :site_id, {presence: true}
 end
