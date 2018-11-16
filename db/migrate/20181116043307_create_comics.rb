@@ -4,7 +4,7 @@ class CreateComics < ActiveRecord::Migration[5.2]
       t.string :title
       t.string :url
       t.string :thum_url
-      t.integer :site
+      t.integer :site_id
 
       t.timestamps
     end
