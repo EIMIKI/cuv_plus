@@ -37,6 +37,8 @@ img{
 }
 
 .comic{
+  height: 350px;
+    width: 475px;
     background-color: red;
     color: white;
     border-radius: 20px;
@@ -48,6 +50,7 @@ img{
 .comic p{
     padding-left: 10px;
     font-weight: bold;
+    font-size: 16px;
 }
 
 .comic:hover{
