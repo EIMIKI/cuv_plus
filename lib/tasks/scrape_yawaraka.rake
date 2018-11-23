@@ -9,7 +9,7 @@ namespace :scrape_yawaraka do
     charset=nil
 
     html=open(url) do |page|
-      charset=page.charset
+      charset="utf-8"
       page.read
     end
 
