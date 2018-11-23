@@ -28,6 +28,7 @@ namespace :scrape_yawaraka do
         if title_html!=""
           # title取得部
           title="#{title_html.split("<")[0]}"
+          title.gsub!("\r\n","")
           puts(title)
 
           # url取得部
