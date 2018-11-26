@@ -1,0 +1,28 @@
+<br /><br /><br /><br />
+
+<%= form_tag("/setting/post",method:"post") do%>
+  <h1>urasunday</h1>
+  <% @us_comics.each do |comic| %>
+    <p>
+      <%= check_box "check", comic.id%>
+      <%= label_tag comic.id,comic.title%>
+    </p>
+  <% end %>
+
+  <h1>sundaywebry</h1>
+  <% @sw_comics.each do |comic| %>
+    <p>
+      <%= check_box "check", comic.id%>
+      <%= label_tag comic.id,comic.title%>
+    </p>
+  <% end %>
+
+  <h1>yawaraka</h1>
+  <% @ys_comics.each do |comic| %>
+    <p>
+      <%= check_box "check", comic.id%>
+      <%= label_tag comic.id,comic.title%>
+    </p>
+  <% end %>
+  <button type="submit">ok</button>
+<% end %>
