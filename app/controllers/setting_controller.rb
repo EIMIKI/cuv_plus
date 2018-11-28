@@ -9,6 +9,7 @@ class SettingController < ApplicationController
     user=User.find(session[:user])
     ids=[]
 
+    user.comics.clear # 既に登録された関連を一旦削除
     params[:check].each do |id,check|
       if check=="1"
         ids.push(id)
