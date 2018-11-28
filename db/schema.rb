@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_27_025505) do
+ActiveRecord::Schema.define(version: 2018_11_28_073612) do
 
   create_table "comics", force: :cascade do |t|
     t.string "title"
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(version: 2018_11_27_025505) do
     t.integer "site_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comics_users", id: false, force: :cascade do |t|
+    t.integer "comic_id", null: false
+    t.integer "user_id", null: false
+    t.index ["comic_id"], name: "index_comics_users_on_comic_id"
+    t.index ["user_id"], name: "index_comics_users_on_user_id"
   end
 
   create_table "sites", force: :cascade do |t|
