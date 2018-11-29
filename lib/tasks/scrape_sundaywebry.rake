@@ -6,8 +6,12 @@ namespace :scrape_sundaywebry do
   task :scrape => :environment do
 
     url='https://www.sunday-webry.com/'
-    site_id=2
+    site_name="サンデーうぇぶり"
     charset=nil
+
+    # 初回スクレイピングでサイトをDBに追加
+    site=Site.find_or_create_by(name:site_name)
+    site_id=site.id
 
     html=open(url) do |page|
       charset=page.charset
