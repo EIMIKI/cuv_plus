@@ -1,8 +1,8 @@
 class SettingController < ApplicationController
   def index
-    @us_comics=Comic.where(site_id:Site.find_by(name:'urasunday')[:id])
-    @sw_comics=Comic.where(site_id:Site.find_by(name:'sundaywebry')[:id])
-    @ys_comics=Comic.where(site_id:Site.find_by(name:'yawaraka')[:id])
+    @us_comics=Comic.where(site_id:Site.find_by(name:'裏サンデー')[:id])
+    @sw_comics=Comic.where(site_id:Site.find_by(name:'サンデーうぇぶり')[:id])
+    @ys_comics=Comic.where(site_id:Site.find_by(name:'やわらかスピリッツ')[:id])
 
 
     checked_comics=Comic.includes(:users).where('users.id'=>session[:user])

@@ -7,7 +7,12 @@ namespace :scrape_urasunday do
   task :scrape => :environment do
 
     url='https://urasunday.com/'
+    site_name="裏サンデー"
     charset=nil
+
+    # 初回スクレイピングでサイトをDBに追加
+    site=Site.find_or_create_by(name:site_name)
+    site_id=site.id
 
     html=open(url) do |page|
       charset=page.charset
