@@ -3,6 +3,7 @@ require 'open-uri'
 namespace :scrape_urasunday do
 
   desc '裏サンデーのwebサイトから更新情報を取得'
+  site_id=1
   task :scrape => :environment do
 
     url='https://urasunday.com/'
@@ -39,8 +40,8 @@ namespace :scrape_urasunday do
       puts("-----------------------------------------")
 
       # DB更新
-      comic=Comic.find_or_initialize_by(title:title)
-      comic.update(title:title,url:url,thum_url:thum_url,site_id:1)
+      comic=Comic.find_or_initialize_by(title:title,site_id:site_id)
+      comic.update(title:title,url:url,thum_url:thum_url,site_id:site_id)
     end
   end
 end
