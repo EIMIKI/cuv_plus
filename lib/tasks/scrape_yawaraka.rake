@@ -3,6 +3,7 @@ require 'open-uri'
 namespace :scrape_yawaraka do
 
   desc 'やわらかスピリッツのwebサイトから更新情報を取得'
+  site_id=3
   task :scrape => :environment do
 
     url='http://yawaspi.com/'
@@ -45,8 +46,8 @@ namespace :scrape_yawaraka do
           puts("-----------------------------------------")
 
           # DB更新
-          comic=Comic.find_or_initialize_by(title:title)
-          comic.update(title:title,url:url,thum_url:thum_url,site_id:3)
+          comic=Comic.find_or_initialize_by(title:title,site_id:site_id)
+          comic.update(title:title,url:url,thum_url:thum_url,site_id:site_id)
         end
       end
     end

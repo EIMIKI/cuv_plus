@@ -6,6 +6,7 @@ namespace :scrape_sundaywebry do
   task :scrape => :environment do
 
     url='https://www.sunday-webry.com/'
+    site_id=2
     charset=nil
 
     html=open(url) do |page|
@@ -35,8 +36,8 @@ namespace :scrape_sundaywebry do
         puts("-----------------------------------------")
 
         # DB更新
-        comic=Comic.find_or_initialize_by(title:title)
-        comic.update(title:title,url:url,thum_url:thum_url,site_id:2)
+        comic=Comic.find_or_initialize_by(title:title,site_id:site_id)
+        comic.update(title:title,url:url,thum_url:thum_url,site_id:site_id)
       end
     end
   end
