@@ -16,6 +16,9 @@
         <% end %>
         <%= link_to("/setting","setting")%>
     </div>
+    <% if flash[:notice]%>
+      <%= flash[:notice]%>
+    <% end%>
     <%= yield %>
   </body>
 </html>
