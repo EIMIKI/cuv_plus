@@ -11,8 +11,14 @@
 
   <body>
     <div class="header">
-        <h1>Comic Update Viewer</h1>
+        <%= link_to("/") do %>
+          <h1>Comic Update Viewer</h1>
+        <% end %>
+        <%= link_to("/setting","setting")%>
     </div>
+    <% if flash[:notice]%>
+      <%= flash[:notice]%>
+    <% end%>
     <%= yield %>
   </body>
 </html>

@@ -26,5 +26,8 @@ class SettingController < ApplicationController
 
     user.comics << Comic.find(ids)
     user.save
+
+    flash[:notice]="設定を変更しました"
+    redirect_to("/")
   end
 end
