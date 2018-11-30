@@ -1,10 +1,14 @@
 class SettingController < ApplicationController
   def index
-    @us_comics=Comic.where(site_id:Site.find_by(name:'裏サンデー')[:id])
-    @sw_comics=Comic.where(site_id:Site.find_by(name:'サンデーうぇぶり')[:id])
-    @ys_comics=Comic.where(site_id:Site.find_by(name:'やわらかスピリッツ')[:id])
 
+    # サイトごとに作品取得
+    sites=Site.all
+    @comics=Hash.new()
+    sites.each do |site|
+      @comics[site.name]=Comic.where(site_id:site.id)
+    end
 
+    # ユーザがチェック済みの作品
     checked_comics=Comic.includes(:users).where('users.id'=>session[:user])
     @checked_comics_id=[]
     checked_comics.each do |comic|
