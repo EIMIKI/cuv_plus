@@ -1,8 +1,11 @@
 <br /><br /><br /><br />
 
 <%= form_tag("/setting/post",method:"post") do%>
-  <h1>urasunday</h1>
-  <% @us_comics.each do |comic| %>
+
+  <% @comics.each do |site,site_comics|%>
+    <h1><%= site%></h1>
+
+    <% site_comics.each do |comic|%>
     <p>
       <% if @checked_comics_id.include?(comic.id)%>
         <%= check_box "check", comic.id,{:checked=>true}%>
@@ -11,30 +14,8 @@
       <% end%>
       <%= label_tag comic.id,comic.title%>
     </p>
-  <% end %>
-
-  <h1>sundaywebry</h1>
-  <% @sw_comics.each do |comic| %>
-  <p>
-    <% if @checked_comics_id.include?(comic.id)%>
-      <%= check_box "check", comic.id,{:checked=>true}%>
-    <% else%>
-      <%= check_box "check", comic.id%>
     <% end%>
-    <%= label_tag comic.id,comic.title%>
-  </p>
-  <% end %>
+  <% end%>
 
-  <h1>yawaraka</h1>
-  <% @ys_comics.each do |comic| %>
-  <p>
-    <% if @checked_comics_id.include?(comic.id)%>
-      <%= check_box "check", comic.id,{:checked=>true}%>
-    <% else%>
-      <%= check_box "check", comic.id%>
-    <% end%>
-    <%= label_tag comic.id,comic.title%>
-  </p>
-  <% end %>
   <button type="submit">ok</button>
 <% end %>
