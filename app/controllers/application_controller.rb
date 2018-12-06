@@ -18,5 +18,11 @@ class ApplicationController < ActionController::Base
       session[:user]=cookies[:user]
     end
 
+    if !User.find_by(id:session[:user])
+      reset_session
+      cookies.delete :user
+      redirect_to("/session_error")
+    end
+
   end
 end
