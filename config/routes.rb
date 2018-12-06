@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'session_error'=>'errors#session_error'
   get '/setting' => 'setting#index'
   get '/' => 'home#index'
   post '/setting/post' => 'setting#post'
