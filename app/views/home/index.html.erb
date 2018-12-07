@@ -1,43 +1,45 @@
-<div class="updates">
-  <div class="today-updates">
+<div class="wrapper">
+  <div class="updates">
+    <div class="today-updates">
 
-    <div class="update-title">
-      <h2>今日の更新</h2>
+      <div class="update-title">
+        <h2>今日の更新</h2>
+      </div>
+
+      <div class="comics">
+        <% @comics.each do |comic|%>
+          <div class="comic">
+            <%= link_to(comic.url,target: "_blank") do %>
+              <%= image_tag "#{comic.thum_url}" %>
+              <p>
+                <%= comic.title %>
+                (<%= comic.updated_at.strftime("%Y/%m/%d") %>)
+              </p>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
 
-    <div class="comics">
-      <% @comics.each do |comic|%>
-        <div class="comic">
-          <%= link_to(comic.url,target: "_blank") do %>
-            <%= image_tag "#{comic.thum_url}" %>
-            <p>
-              <%= comic.title %>
-              (<%= comic.updated_at.strftime("%Y/%m/%d") %>)
-            </p>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-  </div>
+    <div class="past-updates">
 
-  <div class="past-updates">
+      <div class="update-title">
+        <h2>過去の更新</h2>
+      </div>
 
-    <div class="update-title">
-      <h2>過去の更新</h2>
-    </div>
-
-    <div class="comics">
-      <% @old_comics.each do |comic|%>
-        <div class="comic">
-          <%= link_to(comic.url,target: "_blank") do %>
-            <%= image_tag "#{comic.thum_url}" %>
-            <p>
-              <%= comic.title %>
-              (<%= comic.updated_at.strftime("%Y/%m/%d") %>)
-            </p>
-          <% end %>
-        </div>
-      <% end %>
+      <div class="comics">
+        <% @old_comics.each do |comic|%>
+          <div class="comic">
+            <%= link_to(comic.url,target: "_blank") do %>
+              <%= image_tag "#{comic.thum_url}" %>
+              <p>
+                <%= comic.title %>
+                (<%= comic.updated_at.strftime("%Y/%m/%d") %>)
+              </p>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
