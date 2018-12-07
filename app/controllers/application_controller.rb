@@ -8,8 +8,7 @@ class ApplicationController < ActionController::Base
     return cookies[:user]
   end
 
-  def set_session
-
+  def set_cookie
     # クッキーが無い時
     if !user?
       uuid=SecureRandom.uuid
@@ -17,14 +16,18 @@ class ApplicationController < ActionController::Base
       new_user_id=new_user.uuid
       cookies.permanent[:user]=new_user_id
     end
+  end
 
+  def set_session
     # セッションが無い時
-    if !session[:user]
-      session[:user]=cookies[:user]
+    if user? && !session[:user]
+      session[:user]=User.find_by(uuid:cookies[:user]).id
+    else
+      return
     end
 
     # セッションが不正な時
-    if !User.find_by(uuid:session[:user])
+    if !User.find_by(id:session[:user])
       reset_session
       cookies.delete :user
       redirect_to("/session_error")
