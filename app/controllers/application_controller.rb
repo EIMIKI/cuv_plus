@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class ApplicationController < ActionController::Base
 
   before_action :set_session
@@ -10,8 +12,9 @@ class ApplicationController < ActionController::Base
 
     # クッキーが無い時
     if !user?
-      new_user=User.create
-      new_user_id=new_user.id
+      uuid=SecureRandom.uuid
+      new_user=User.create(uuid:uuid)
+      new_user_id=new_user.uuid
       cookies.permanent[:user]=new_user_id
     end
 
@@ -21,7 +24,7 @@ class ApplicationController < ActionController::Base
     end
 
     # セッションが不正な時
-    if !User.find_by(id:session[:user])
+    if !User.find_by(uuid:session[:user])
       reset_session
       cookies.delete :user
       redirect_to("/session_error")
