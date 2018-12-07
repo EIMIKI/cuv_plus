@@ -1,4 +1,7 @@
 class SettingController < ApplicationController
+  before_action :set_cookie,{only:[:post]}
+  before_action :set_session
+
   def index
 
     # サイトごとに作品取得
@@ -9,10 +12,12 @@ class SettingController < ApplicationController
     end
 
     # ユーザがチェック済みの作品
-    checked_comics=Comic.includes(:users).where('users.id'=>session[:user])
     @checked_comics_id=[]
-    checked_comics.each do |comic|
-      @checked_comics_id.push(comic.id)
+    if session[:user]
+      checked_comics=Comic.includes(:users).where('users.id'=>session[:user])
+      checked_comics.each do |comic|
+        @checked_comics_id.push(comic.id)
+      end
     end
 
   end
