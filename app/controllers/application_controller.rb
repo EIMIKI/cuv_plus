@@ -19,19 +19,22 @@ class ApplicationController < ActionController::Base
   end
 
   def set_session
-    # セッションが無い時
-    if user? && !session[:user]
-      session[:user]=User.find_by(uuid:cookies[:user]).id
-    else
-      return
+    if user?
+      # クッキーが不正な時
+      if !User.find_by(uuid:cookies[:user])
+        reset_session
+        cookies.delete :user
+        redirect_to("/session_error")
+        return
+      end
+
+      # セッションが無い時
+      if !session[:user]
+        session[:user]=User.find_by(uuid:cookies[:user]).id
+      end
     end
 
-    # セッションが不正な時
-    if !User.find_by(id:session[:user])
-      reset_session
-      cookies.delete :user
-      redirect_to("/session_error")
-    end
+
 
   end
 end
