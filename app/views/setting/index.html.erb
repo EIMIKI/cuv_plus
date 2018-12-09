@@ -1,32 +1,34 @@
-<div class="setting-form">
-  <%= form_tag("/setting/post",method:"post") do%>
-    <div class="check-lists">
+<div class="wrapper">
+  <div class="setting-form">
+    <%= form_tag("/setting/post",method:"post") do%>
+      <div class="check-lists">
 
-      <% @comics.each do |site,site_comics|%>
-        <div class="check-list">
+        <% @comics.each do |site,site_comics|%>
+          <div class="check-list">
 
-          <div class="site-title">
-            <h2><%= site%></h2>
+            <div class="site-title">
+              <h2><%= site%></h2>
+            </div>
+
+            <div class="check-comics">
+
+              <% site_comics.each do |comic|%>
+                <div class="check-comic">
+                  <% if @checked_comics_id.include?(comic.id)%>
+                    <%= check_box "check", comic.id,{:checked=>true}%>
+                  <% else%>
+                    <%= check_box "check", comic.id%>
+                  <% end%>
+                  <%= label_tag "check_#{comic.id}",comic.title%>
+                </div>
+              <% end%>
+            </div>
           </div>
-
-          <div class="check-comics">
-
-            <% site_comics.each do |comic|%>
-              <div class="check-comic">
-                <% if @checked_comics_id.include?(comic.id)%>
-                  <%= check_box "check", comic.id,{:checked=>true}%>
-                <% else%>
-                  <%= check_box "check", comic.id%>
-                <% end%>
-                <%= label_tag comic.id,comic.title%>
-              </div>
-            <% end%>
-          </div>
-        </div>
-      <% end%>
-    </div>
-    <div class="submit-btn">
-      <button type="submit">設定を確定する</button>
-    </div>
-  <% end %>
+        <% end%>
+      </div>
+      <div class="submit-btn">
+        <button type="submit">設定を確定する</button>
+      </div>
+    <% end %>
+  </div>
 </div>
