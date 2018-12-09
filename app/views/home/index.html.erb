@@ -7,7 +7,8 @@
       </div>
 
       <div class="comics">
-        <% @comics.each do |comic|%>
+        <% if !@comics.empty? %>
+          <% @comics.each do |comic|%>
           <div class="comic">
             <%= link_to(comic.url,target: "_blank") do %>
               <%= image_tag "#{comic.thum_url}" %>
@@ -18,6 +19,14 @@
             <% end %>
           </div>
         <% end %>
+      <% else %>
+        <div class="nil-comics">
+          <p>
+            更新がありません。>
+            <%= link_to("設定を確認する","/setting")%>
+          </p>
+        </div>
+      <%end%>
       </div>
     </div>
 
@@ -28,17 +37,26 @@
       </div>
 
       <div class="comics">
-        <% @old_comics.each do |comic|%>
-          <div class="comic">
-            <%= link_to(comic.url,target: "_blank") do %>
-              <%= image_tag "#{comic.thum_url}" %>
-              <p>
-                <%= comic.title %>
-                (<%= comic.updated_at.strftime("%Y/%m/%d") %>)
-              </p>
-            <% end %>
+        <% if !@old_comics.empty? %>
+          <% @old_comics.each do |comic|%>
+            <div class="comic">
+              <%= link_to(comic.url,target: "_blank") do %>
+                <%= image_tag "#{comic.thum_url}" %>
+                <p>
+                  <%= comic.title %>
+                  (<%= comic.updated_at.strftime("%Y/%m/%d") %>)
+                </p>
+              <% end %>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="nil-comics">
+            <p>
+              表示するComicがありません。>
+              <%= link_to("設定を確認する","/setting")%>
+            </p>
           </div>
-        <% end %>
+        <%end%>
       </div>
     </div>
   </div>
