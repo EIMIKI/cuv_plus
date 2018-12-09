@@ -1,3 +1,89 @@
 // Place all the styles related to the setting controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.site-title{
+  clear: both;
+}
+
+input[type="checkbox"]{
+  display: none;
+}
+
+input[type="checkbox"]+label{
+  float: left;
+  border: 1px solid rgb(150, 150, 150);
+  border-radius: 3px;
+  box-shadow: 0px 5px gray;
+  background-color: rgb(20, 20, 20);
+  color: rgb(230, 230, 230);
+  margin:10px 5px;
+  padding: 10px;
+  font-size: 20px;
+  padding-left: 20px;
+}
+
+input[type="checkbox"] + label::before{
+  content: "";
+  display: inline-block;
+  position: relative;
+  left:-5px;
+  width: 15px;
+  height: 15px;
+  border: 1px solid rgb(150, 150, 150);
+  border-radius: 4px;
+}
+
+input[type="checkbox"]:checked + label{
+  position: relative;
+  top:5px;
+  box-shadow: none;
+  opacity: 0.9;
+}
+
+
+input[type="checkbox"]:hover + label{
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked + label::after{
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 13px;
+  left: 20px;
+  width: 7px;
+  height: 14px;
+  transform: rotate(40deg);
+  border-bottom: 3px solid rgb(50, 200, 200);
+  border-right: 3px solid rgb(50, 200, 200);
+}
+
+.submit-btn{
+  clear: both;
+  text-align: center;
+  border-top: 1px dotted rgb(20, 20, 20);
+  padding: 30px 0px;
+  position: relative;
+  top:30px;
+}
+.submit-btn button{
+  background-color: rgb(20, 20, 20);
+  color: rgb(230, 230, 230);
+  font-size: 30px;
+}
+
+.site-title{
+  border: 4px solid rgb(150, 150, 150);
+  margin: 200px 50px 20px 50px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.check-comics{
+  margin-left: 75px;
+}
+
+.setting-form{
+  margin-top: -80px;
+}

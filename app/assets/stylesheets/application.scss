@@ -1,0 +1,76 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+* vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require_self
+*/
+body{
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height:100%;
+
+  background: rgb(230, 230, 230);
+}
+
+a{
+  text-decoration: none;
+  color: rgb(230, 230, 230);
+}
+
+.header{
+  position: fixed;
+  top :0px;
+  width: 100%;
+  height: 99px;
+  background-color: rgb(20, 20, 20);
+  opacity: 0.9;
+}
+
+.page-title{
+  position: absolute;
+  top: 5px;
+  left:20px;
+
+  color: rgb(230, 230, 230);
+
+}
+
+.setting-link{
+  position:absolute;
+  right: 0px;
+  border-left: 1px solid rgb(101, 101, 101);
+  font-size: 20px;
+}
+
+.setting-link a{
+  display: block;
+  padding: 35px 30px;
+}
+
+.setting-link a:hover{
+  background-color: rgb(150, 150, 150);
+  color: rgb(20, 20, 20);
+}
+
+.notice{
+  position: fixed;
+  top: 99px;
+  width: 100%;
+  background: rgb(228, 130, 29);
+  text-align: center;
+}
+
+.wrapper{
+  margin-top: 140px;
+  width: 100%;
+}

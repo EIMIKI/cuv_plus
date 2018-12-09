@@ -1,3 +1,10 @@
 // Place all the styles related to the errors controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.err-msg{
+  text-align: center;
+}
+.err-msg a{
+  color: rgb(20, 20, 20);
+  border-bottom: 1px dotted rgb(20, 20, 20);
+}

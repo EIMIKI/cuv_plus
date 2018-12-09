@@ -1,62 +1,43 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-html,body{
-    margin: 0px;
-    padding: 0px;
-    width: 100%;
-    height: 100%;
-}
-
-a:link,a:visited{
-    color: white;
-    text-decoration: none;
-}
-
-
-img{
-    width: 475px;
-    border-bottom: solid darkgray 1px;
-}
-
-.updates{
-    width: 90%;
-    margin-top:120px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.updates h2{
-    background-color: darkgray;
-    color: white;
-    width: 300px;
-    box-shadow: 5px 5px gray;
-    border-radius: 30px;
-    margin-left: 20px;
-    padding-left: 10px;
+// // Place all the styles related to the home controller here.
+// // They will automatically be included in application.css.
+// // You can use Sass (SCSS) here: http://sass-lang.com/
+.comics{
+  margin-left: 70px;
 }
 
 .comic{
-  height: 350px;
-    width: 475px;
-    background-color: red;
-    color: white;
-    border-radius: 20px;
-    float:left;
-    margin-left:30px;
-    margin-bottom: 30px;
+  float: left;
+  background-color: rgb(20, 20, 20);
+  width: 400px;
+  height: 320px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
 }
+
 
 .comic p{
-    padding-left: 10px;
-    font-weight: bold;
-    font-size: 16px;
+  margin-left: 10px;
 }
 
+.comic img{
+  width: 100%;
+}
 .comic:hover{
-    opacity: 0.5;
+  opacity: 0.5;
+}
+.today-updates ,.past-updates{
+  clear: both;
 }
 
-.past_update{
-    clear: both;
+.update-title{
+  border: 4px solid rgb(150, 150, 150);
+  margin:40px 50px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.nil-comics a{
+  color: rgb(20, 20, 20);
+  border-bottom: 1px dotted rgb(20, 20, 20);
 }
