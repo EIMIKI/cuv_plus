@@ -41,3 +41,24 @@
   color: rgb(20, 20, 20);
   border-bottom: 1px dotted rgb(20, 20, 20);
 }
+
+.about a{
+  color: rgb(20, 20, 20);
+  border-bottom: 1px dotted rgb(20, 20, 20);
+}
+
+.about-link{
+  position: fixed;
+  bottom : 20px;
+  right: 20px;
+  background-color: rgb(20, 20, 20);
+  font-size: 30px;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 5px 5px rgb(162, 160, 162);
+  border: 1px solid rgb(150, 150, 150);
+  opacity: 0.8;
+}
+.about-link:hover{
+  opacity: 1;
+}
