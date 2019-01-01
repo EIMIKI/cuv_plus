@@ -63,3 +63,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'webpush'
 gem 'serviceworker-rails'
+gem 'dotenv-rails'
