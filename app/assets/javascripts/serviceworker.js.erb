@@ -76,3 +76,27 @@ self.addEventListener('push', function(event){
 
   event.waitUntil(self.registration.showNotification(title, data));
 });
+
+//まだよくわからない
+self.addEventListener("notificationclick", function(event) {
+  event.notification.close();
+  var link_to = event.notification.data.link_to;
+
+  event.waitUntil(clients.matchAll({
+    type: "window"
+  }).then(function(clientList) {
+    for (var i = 0; i < clientList.length; i++) {
+      var client = clientList[i];
+      var regexp = new RegExp(link_to + '$');
+      var match = client.url.match(regexp);
+
+      if (match != null && 'focus' in client)
+        return client.focus();
+    }
+    if (clients.openWindow) {
+      return clients.openWindow(link_to);
+    }self.addEventListener('notificationclick', function(event) {
+  event.waitUntil(clients.openWindow(event.data.url));
+}, false);
+  }));
+});
