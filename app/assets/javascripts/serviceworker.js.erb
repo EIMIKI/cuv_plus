@@ -62,3 +62,17 @@ function onFetch(event) {
 self.addEventListener('install', onInstall);
 self.addEventListener('activate', onActivate);
 self.addEventListener('fetch', onFetch);
+
+self.addEventListener('push', function(event){
+  var title = (event.data && event.data.text()) || 'テストプッシュ';
+  var data = {
+    body: "",
+    tag: "cuv",
+    vibrate: [400,100,400],
+    data: {
+      link_to: '/'
+    }
+  };
+
+  event.waitUntil(self.registration.showNotification(title, data));
+});
