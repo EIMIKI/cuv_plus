@@ -3,6 +3,7 @@ require 'securerandom'
 class ApplicationController < ActionController::Base
 
   before_action :set_session
+  helper_method :vapid_public_key
 
   def user?
     return cookies[:user]
@@ -36,5 +37,9 @@ class ApplicationController < ActionController::Base
 
 
 
+  end
+
+  def vapid_public_key
+    @decode_vapid_public_key ||= Base64.urlsafe_decode64(ENV['VAPID_PUBLIC_KEY']).bytes
   end
 end
