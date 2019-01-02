@@ -1,5 +1,5 @@
 namespace :vapid do
-  desc:"vapidの生成(一度のみ実行)"
+  desc:"vapidの生成"
   task :generate do
     pub="VAPID_PUBLIC_KEY"
     pri="VAPID_PRIVATE_KEY"
@@ -11,6 +11,11 @@ namespace :vapid do
       f.puts "#{pri}=#{vapid_key.private_key}"
     }
 
+    p "vapid was generated!"
+  end
+
+  task :set do
     Dotenv.load
+    p "vapid was installed to env"
   end
 end
