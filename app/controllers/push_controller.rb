@@ -25,8 +25,9 @@ class PushController
 
   def create_message(user_id)
     collection=Comic.includes(:users).where('users.id'=>user_id)
+    today_collection=collection.where(updated_at:Time.zone.now.all_day)
     unless collection.empty?
-      count=collection.where(updated_at:Time.zone.now.all_day).count
+      count=today_collection.count
     else
       return nil
     end
@@ -34,7 +35,7 @@ class PushController
     title="本日(#{Date.today})更新された作品があります。作品数:#{count}"
 
     body=[]
-    collection.each do |comic|
+    today_collection.each do |comic|
       body.push(comic.title)
     end
     p body
