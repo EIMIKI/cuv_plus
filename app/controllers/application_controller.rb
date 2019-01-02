@@ -40,6 +40,6 @@ class ApplicationController < ActionController::Base
   end
 
   def vapid_public_key
-    @decode_vapid_public_key ||= Base64.urlsafe_decode64(ENV['VAP_PUBLIC_KEY']).bytes
+    @decode_vapid_public_key ||= Base64.urlsafe_decode64(ENV['VAPID_PUBLIC_KEY']).bytes
   end
 end
