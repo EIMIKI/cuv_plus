@@ -64,9 +64,11 @@ self.addEventListener('activate', onActivate);
 self.addEventListener('fetch', onFetch);
 
 self.addEventListener('push', function(event){
-  var title = (event.data && event.data.text()) || 'テストプッシュ';
+
+  var message=event.data.json()
+  var title = message.title;
   var data = {
-    body: "",
+    body: message.body,
     tag: "cuv",
     vibrate: [400,100,400],
     data: {

@@ -31,7 +31,14 @@ class PushController
       return nil
     end
 
-    message="本日(#{Date.today})更新された作品があります。\n作品数:#{count}"
+    title="本日(#{Date.today})更新された作品があります。作品数:#{count}"
+
+    body=[]
+    collection.each do |comic|
+      body.push(comic.title)
+    end
+    p body
+    message=JSON.generate({"title":title,"body":body})
     return message
   end
 end
