@@ -26,7 +26,7 @@ class PushController
   def create_message(user_id)
     collection=Comic.includes(:users).where('users.id'=>user_id)
     today_collection=collection.where(updated_at:Time.zone.now.all_day)
-    unless collection.empty?
+    unless today_collection.empty?
       count=today_collection.count
     else
       return nil
