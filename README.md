@@ -18,10 +18,11 @@
 ## 導入
 1. $ git clone https://github.com/EIMIKI/cuv_plus.git
 2. $ cd cuv_plus
-3. $ rails db:migrate
-4. $ rails vapid:generate
-5. $ rails vapid:set
-6. $ rails s
+3. $ bundle install
+4. $ rails db:migrate
+5. $ rails vapid:generate
+6. $ rails vapid:set
+7. $ rails s
 
 ## その他
 ### スクレイピングによる更新の取得
